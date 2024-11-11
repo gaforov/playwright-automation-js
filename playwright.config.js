@@ -36,7 +36,16 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1280, height: 900 }, // Set the window size
+        launchOptions: { // Set launch options for window position
+          args: [
+            // '--window-position=5,405'  // Bottom of external monitor at effective scaling (150% scale of 4k 27 inch)
+            '--window-position=0,0'  // Top-left of external screen, this is default anyways. 
+          ], 
+        }
+      },
     },
 
     // Disable Firefox and Safari for now. 

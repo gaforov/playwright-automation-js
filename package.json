@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "tests": "npx playwright test",
-    "test:specific": "npx playwright test --grep playwright-intro.spec.js",
+    "test:specific": "npx playwright test --grep playwright-practice.spec.js",
     "report": "npx playwright show-report"
   },
   "keywords": [],
@@ -14,5 +14,8 @@
   "devDependencies": {
     "@playwright/test": "^1.48.2",
     "@types/node": "^22.8.2"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   }
 }
