@@ -11,11 +11,6 @@ test('Youtube Search', async ({page}) => {
     await page.waitForTimeout(2000);
     await searchButton.click();
     await searchInput.press('Enter')
-    // await searchInput.waitFor({ state: 'visible' });
-    // await searchInput.focus(); // Ensure the input is focused
-    // await searchInput.fill('Playwright Automation');
-    // await page.waitForTimeout(2000);
-    // await searchInput.press('Enter');
 });
 
 /* 
