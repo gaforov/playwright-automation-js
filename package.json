@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "tests": "npx playwright test",
-    "test:specific": "npx playwright test --grep playwright-practice.spec.js",
+    "test:specific": "npx playwright test --grep sep-login.spec.js",
     "test:tag": "npx playwright test --grep @smoke",
     "report": "npx playwright show-report"
   },
