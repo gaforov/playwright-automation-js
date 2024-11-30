@@ -24,6 +24,7 @@ test.describe('New Test Group', () => {
         const congratsMessage = page.locator('p', { hasText: 'Congratulations!' });
 
         await expect(successMessage).toBeVisible();
+        await expect(congratsMessage).toBeVisible();
     });
 
 
@@ -37,7 +38,6 @@ test.describe('New Test Group', () => {
 
         await page.goto('https://practice.cydeo.com/basic_auth'); // URL without embedded credentials
         await expect(page.locator('text=Congratulations! You must have the proper credentials.')).toBeVisible();
-
     });
 
 

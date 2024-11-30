@@ -8,9 +8,19 @@ test.afterEach(async ({ page }) => {
 
 
 test('TC1: Unsecure SEP Login.', async ({ page }) => {
-    /** If you push this to GitHub as this, its not safe. Your credentials are exposed.
-    One way to seolve this issue, is to store your credentials in User Settings 'settings.json' file 
-    Search exactly like this: "> Open User Seetings (JSON)"
+    const password = Buffer.from("automation-user:123abc").toString("base64");
+
+    await page.setExtraHTTPHeaders({
+        Authorization: `Basic ${password}`
+    });
+
+    await page.goto('https://qa.sep.tdtm.cydeo.com/taws'); // go to page
+
+    expect(await page.title()).toContain('Checkout'); // verify page accessible
+
+    /** NOTE: If you push this to GitHub as this, its not safe. Your credentials are exposed.
+    One way to solve this issue, is to store your credentials in User Settings 'settings.json' file 
+    Search exactly like this: "> Open User Seetings (JSON)" [More explained in TC2 below]
 
     Example code:
       "playwright.env": {
@@ -19,16 +29,6 @@ test('TC1: Unsecure SEP Login.', async ({ page }) => {
     }
         
     */
-
-    const password = Buffer.from("automation-user:123abc").toString("base64");
-
-    await page.setExtraHTTPHeaders({
-        Authorization: `Basic ${password}`
-    });
-
-    await page.goto('https://qa.sep.tdtm.cydeo.com/taws');
-
-    expect(await page.title()).toContain('Checkout');
 });
 
 
@@ -52,7 +52,7 @@ test('TC2: Secure SEP Login. Auth using local environment (settings.json)', asyn
 });
 
 
-test('TC3: SEP Login. Attempt to login without credentials. Debugging test', async ({ page }) => {
+test('TC3: SEP Login. Attempt to login without credentials. Fails. Debugging test', async ({ page }) => {
 
     await page.goto('https://qa.sep.tdtm.cydeo.com/taws');
     expect(await page.title()).toContain('Checkout');

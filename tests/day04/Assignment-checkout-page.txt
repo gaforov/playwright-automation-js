@@ -1,0 +1,26 @@
+Assignment:
+1. Navigate to https://qa.sep.tdtm.cydeo.com/taws (Web based Authentication is needed)
+
+2. Verify that title is "Checkout | Cydeo"
+
+3. Click Next button from Start application step to navigate to Payment Plans step
+
+4. Verify that the Next button is disabled by default
+
+5. Select one of the payment option
+
+6. Verify that the Next button is enabled
+
+7. Click Next button from Payment plan step to navigate to Review step
+
+8. Verify that the terms & conditions checkbox is unchekced by default
+
+9. Enter card information
+
+10. Check the terms & conditions checkbox
+
+11. Click Pay button
+
+12. Confrim Paymenet confrimation page is displayed. 
+
+DO not reveal sensitive info such as CC numebrs, CVC, ZP Code, etc. 
