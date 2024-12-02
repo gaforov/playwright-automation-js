@@ -38,12 +38,15 @@ module.exports = defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1280, height: 900 }, // Set the window size
+        viewport: { width: 1920, height: 1080 }, // Set the window size
+        // viewport: null, // Disable viewport to maximize the browser window
+        // deviceScaleFactor: undefined, // Remove deviceScaleFactor to avoid conflict
         launchOptions: { // Set launch options for window position
           args: [
-            // '--window-position=5,405'  // Bottom of external monitor at effective scaling (150% scale of 4k 27 inch)
-            '--window-position=0,0'  // Top-left of external screen, this is default anyways. 
-          ], 
+            // '--start-maximized',
+            '--window-position=-1600,-1420',  
+            // '--window-position=0,0' // Optional: Ensures the browser starts at the top-left of the screen
+          ],
         }
       },
     },
