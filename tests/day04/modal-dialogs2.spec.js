@@ -47,7 +47,7 @@ test.describe('Modal Dialogs Tests', () => {
 
 
 
-    test('Hadnling Confirm Dialog', async ({ page }) => {
+    test('Handling Confirm Dialog', async ({ page }) => {
         page.on("dialog", async (confirmButton) => {
             console.log(confirmButton.message()); // Optinally, log the message for debugging
             await page.waitForTimeout(1000);  // This is also optioanl, for visual display of pop-up dialog, wihtout wait Playwright will handle it silently (programatically). 
@@ -58,7 +58,7 @@ test.describe('Modal Dialogs Tests', () => {
         await expect(page.locator("text='You clicked: Cancel'"), "Alert text not visible as expected.").toBeVisible();
     });
 
-    test('Prompt Dialog', async ({ page }) => {
+    test('Hnadling Prompt Dialog', async ({ page }) => {
         page.on("dialog", async (promtButton) => {
             await page.waitForTimeout(1000); 
             await promtButton.accept("Hello!"); // Accept and enter text into input field

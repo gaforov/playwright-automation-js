@@ -23,10 +23,39 @@ test.describe('Modal Dialogs Tests', () => {
     });
 
     test('Confirm Dialog', async ({ page }) => {
+        let confirmMessage = ''; // Variable to capture the confirm message
+
+        // Set up the dialog listener
+        page.on('dialog', async (dialog) => {
+            confirmMessage = dialog.message(); // Capture the confirm message
+            console.log(`Confirm message: ${confirmMessage}`); // Log the message
+            await dialog.accept(); // Accept the confirm dialog
+        });
+
+        // Trigger the confirm dialog
+        await page.click("//button[@onclick='jsConfirm()']"); // Click the button to trigger the confirm dialog
+
+        // Assertion: Verify the confirm message
+        expect(confirmMessage).toBe("I am a JS Confirm"); // Validate captured message
 
     });
 
     test('Prompt Dialog', async ({ page }) => {
+        const inputText = "Hello, Playwright!"; // Text to enter in the prompt
+        let promptMessage = ''; // Variable to capture the prompt message
 
+        // Set up the dialog listener
+        page.on('dialog', async (dialog) => {
+            promptMessage = dialog.message(); // Capture the prompt message
+            console.log(`Prompt message: ${promptMessage}`); // Log the message
+            //await page.waitForTimeout(1000); // Allows the dialog to be visually seen before being handled.
+            await dialog.accept(inputText); // Accept and send text to the prompt
+        });
+
+        // Trigger the prompt dialog
+        await page.click("//button[@onclick='jsPrompt()']"); // Click the button to trigger the prompt
+
+        // Assertion: Verify the prompt response on the page
+        await expect(page.locator("p#result")).toHaveText(`You entered: ${inputText}`); // Validate response
     });
 });
