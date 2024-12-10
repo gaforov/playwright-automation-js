@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "tests": "npx playwright test",
+    "test": "npx playwright test",
     "test:specific": "npx playwright test --grep sep-login.spec.js",
-    "test:tag": "npx playwright test --grep @smoke",
+    "smoke": "npx playwright test --grep @smoke",
+    "regression": "npx playwright test --grep @regression",
     "report": "npx playwright show-report"
   },
   "keywords": [],
