@@ -53,7 +53,12 @@ test('TC2: Secure SEP Login. Auth using local environment (settings.json)', asyn
 
 
 test('TC3: SEP Login. Attempt to login without credentials. Fails. Debugging test', async ({ page }) => {
-
-    await page.goto('https://qa.sep.tdtm.cydeo.com/taws');
-    expect(await page.title()).toContain('Checkout');
+    try {
+        await page.goto('https://qa.sep.tdtm.cydeo.com/taws');
+        // If the navigation succeeds unexpectedly, fail the test.
+        expect.fail('Navigation succeeded, but it was expected to fail due to missing credentials.');
+    } catch (error) {
+        // Assert that the error is due to invalid authentication credentials.
+        expect(error.message).toContain('net::ERR_INVALID_AUTH_CREDENTIALS');
+    }
 });

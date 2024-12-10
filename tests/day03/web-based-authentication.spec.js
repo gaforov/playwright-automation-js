@@ -40,7 +40,4 @@ test.describe('New Test Group', () => {
         await expect(page.locator('text=Congratulations! You must have the proper credentials.')).toBeVisible();
     });
 
-
-    test('Test Case 3', async ({ page }) => {
-    });
 });

@@ -24,9 +24,9 @@ test('toBeTruthy() example', async ({page}) => {
     expect([]).toBeTruthy();          // Passes
   
     // Values that fail with toBeTruthy()
-    expect(false).toBeTruthy();       // Fails
-    expect("").toBeTruthy();          // Fails
-    expect(0).toBeTruthy();           // Fails
-    expect(null).toBeTruthy();        // Fails
-    expect(undefined).toBeTruthy();   // Fails
+    // expect(false).toBeTruthy();       // Fails
+    // expect("").toBeTruthy();          // Fails
+    // expect(0).toBeTruthy();           // Fails
+    // expect(null).toBeTruthy();        // Fails
+    // expect(undefined).toBeTruthy();   // Fails
   });

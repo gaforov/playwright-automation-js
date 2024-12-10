@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { clickOnText } from '../helpers/navigationUtils';
 
 test.describe('My New Test Group', () => {
 
@@ -22,9 +23,4 @@ test.describe('My New Test Group', () => {
     });
 
 
-    test('TC2.', async ({ page }) => {
-    });
-
-    test('TC3.', async ({ page }) => {
-    });
 });

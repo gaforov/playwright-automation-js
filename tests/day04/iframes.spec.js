@@ -22,13 +22,13 @@ test.describe('iFrame Tests', () => {
     let myFrame = page.frameLocator("#mce_0_ifr"); // First locating iFrame
     let textAreaInsideiFrame = myFrame.locator("#tinymce"); // Then moving/switching to inside iframe. 
     await page.waitForTimeout(1000); // slow down to see clearing of body text. 
-    await textAreaInsideiFrame.clear();
-    await page.waitForTimeout(1000); // slow down to see the action
-    textAreaInsideiFrame.fill("Hey Said!");
+    // await textAreaInsideiFrame.clear(); // Cannot interact with the page anymore, form is not editable. 
+    // await page.waitForTimeout(1000); // slow down to see the action
+    // textAreaInsideiFrame.fill("Hey Said!"); // Cannot interact with the form anymore, form is not editable.
 
     //verify text presence
-    await expect(textAreaInsideiFrame).toHaveText("Hey Said!");        // one way
-    expect(await textAreaInsideiFrame.innerText()).toBe("Hey Said!");  // another way
+    await expect(textAreaInsideiFrame).toHaveText("Your content goes here.");        // one way
+    expect(await textAreaInsideiFrame.innerText()).toBe("Your content goes here.");  // another way
 
     // can interact outside the iframe without switching back to parent (unlike Selenium).
     const pageTitle = await page.locator(".example h3").innerText();
@@ -56,8 +56,5 @@ test.describe('iFrame Tests', () => {
 
 
 
-  test('TC3. Locate iFrame by xPath', async ({ page }) => {
-    //same as other test cases, only locator will be XPath. No need to repeat. 
-  });
 
 });
