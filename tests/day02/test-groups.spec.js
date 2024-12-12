@@ -10,7 +10,7 @@ test.describe('Test Group 1', () => {
         console.log('After All Tests');
     });
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({ }) => {
         console.log('Before Each Test');
     });
 
@@ -18,15 +18,15 @@ test.describe('Test Group 1', () => {
         console.log('After Each Test');
     });
 
-    test('Test Case 1', async ({ page }) => {
+    test('Test Case 1', async ({ }) => {
         console.log('Test Case 1');
     });
 
-    test('Test Case 2', async ({ page }) => {
+    test('Test Case 2', async ({ }) => {
         console.log('Test Case 2');
     });
 
-    test('Test Case 3', async ({ page }) => {
+    test('Test Case 3', async ({ }) => {
         console.log('Test Case 3');
     });
 
