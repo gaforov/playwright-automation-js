@@ -7,7 +7,7 @@ This repository contains a simple and minimal automation framework using [Playwr
 - **Cross-Browser Testing**: Supports Chromium, Firefox, and WebKit for comprehensive browser coverage.
 - **Parallel Execution**: Facilitates parallel test execution to reduce overall test run time.
 - **Custom Utilities**: Includes helper methods for easier navigation and test implementation.
-- **CI/CD Integration**: Designed to test Azure Pipelines integration for continuous testing workflows.
+- **CI/CD Integration**: Designed to test Azure Pipelines (and Jenkins) integration for continuous testing workflows.
 
 ## Prerequisites
 
