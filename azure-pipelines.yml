@@ -4,7 +4,9 @@ trigger:
       - main  # Adjust to your desired branch(es)
 
 pool:
-  name: 'Self-Hosted Agent Pool'  # Make sure this is the correct agent pool name
+  name: 'Self-Hosted Agent Pool'  # Use your agent pool's exact name
+  demands:
+    - Agent.Version -gtVersion 4.248.0
 
 steps:
 - task: UseNode@1  # Example task: setup Node.js environment
