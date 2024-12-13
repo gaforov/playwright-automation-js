@@ -1,20 +1,25 @@
 trigger:
   branches:
     include:
-      - main  # Adjust to your desired branch(es)
+      - main  # Trigger pipeline on changes to the 'main' branch
 
 pool:
-  name: 'Self-Hosted Agent Pool'  # Use your agent pool's exact name
-  demands:
-    - Agent.Version -gtVersion 4.248.0
+  name: 'Self-hosted Agent Pool'  # Use your self-hosted agent pool's name
 
 steps:
-- task: UseNode@1  # Example task: setup Node.js environment
+- task: UseNode@1  # Setup Node.js environment
   inputs:
     versionSpec: '16.x'
     addToPath: true
 
 - script: |
-    npm install
-    npx playwright test
-  displayName: 'Install dependencies and run tests'
+    npm install  # Install dependencies
+    npx playwright test --grep @smoke  # Run only smoke tests
+  displayName: 'Install dependencies and run smoke tests'
+
+- task: PublishTestResults@2  # Publish test results
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/test-results/*.xml'
+    mergeTestResults: true
+    testRunTitle: 'Playwright Test Run'
