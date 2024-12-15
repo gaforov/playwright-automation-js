@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test';
 
 
-test('Multi-window handling', async ({ page }) => {
-    await page.goto('https://practice.cydeo.com/windows');
-    await expect(page).toHaveTitle('Windows');
-    page.getByText('Click Here').click(); // This will open a new tab(page)
-    await expect(page).toHaveTitle('New Window'); // <-- You need to switch to the new window before verification
-});
+// test('Multi-window handling', async ({ page }) => {
+//     await page.goto('https://practice.cydeo.com/windows');
+//     await expect(page).toHaveTitle('Windows');
+//     page.getByText('Click Here').click(); // This will open a new tab(page)
+//     await expect(page).toHaveTitle('New Window'); // <-- You need to switch to the new window before verification
+// });
 
 test('Multi-window simpler way', async ({ page }) => {
     await page.goto('https://practice.cydeo.com/windows');
